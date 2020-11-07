@@ -1,10 +1,10 @@
 #include <iostream>
-#include <cmath>
 #include <vector>
 #include <fstream>
 #include <ctime>
+#include <cstring>
 #include <cstdlib>
-#include  <limits>
+#include <limits>
 
 using namespace std;
 
@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
             throw "OUT_NOT_OPENED";
         fout.clear();
         if (argc == 4)
-            is_t = argv[3] == "-t";
+            is_t = strcmp(argv[3], "-t") == 0;
 
         size_t amount_of_strings = 0;
         size_t max_string_len = 0;
@@ -70,7 +70,7 @@ int main(int argc, char *argv[]) {
         return 0;
     }
 
-    catch (string errors) {
+    catch (string &errors) {
         cout << errors;
         return -1;
     }
